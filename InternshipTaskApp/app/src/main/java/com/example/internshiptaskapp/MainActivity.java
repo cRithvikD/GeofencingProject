@@ -190,10 +190,10 @@ public class MainActivity extends AppCompatActivity {
     private void addGeofence( double la,double lo, float radius){
         Geofence geofence = geofenceHelper.getGeofence(Geofence_ID, la,lo, radius,Geofence.GEOFENCE_TRANSITION_DWELL  | Geofence.GEOFENCE_TRANSITION_ENTER );
         GeofencingRequest geofencingRequest = geofenceHelper.getGeofencingRequest(geofence);
-       // AlarmManager alarmManager;
-       // alarmManager = (AlarmManager) this.getSystemService(Context.ALARM_SERVICE);
+        AlarmManager alarmManager;
+        alarmManager = (AlarmManager) this.getSystemService(Context.ALARM_SERVICE);
         PendingIntent pendingIntent = geofenceHelper.getPendingIntent();
-      //  alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,System.currentTimeMillis(),10000, pendingIntent);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,System.currentTimeMillis(),10000, pendingIntent);
         geofencingClient.addGeofences(geofencingRequest,pendingIntent)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
