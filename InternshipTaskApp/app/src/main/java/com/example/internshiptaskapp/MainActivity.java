@@ -193,7 +193,7 @@ public class MainActivity extends AppCompatActivity {
         AlarmManager alarmManager;
         alarmManager = (AlarmManager) this.getSystemService(Context.ALARM_SERVICE);
         PendingIntent pendingIntent = geofenceHelper.getPendingIntent();
-        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,System.currentTimeMillis(),10000, pendingIntent);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,System.currentTimeMillis(),600000, pendingIntent);
         geofencingClient.addGeofences(geofencingRequest,pendingIntent)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
