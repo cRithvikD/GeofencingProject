@@ -35,20 +35,8 @@ public class Timer extends AppCompatActivity {
         });
 
          _tv =  findViewById( R.id.timerText );
-            new CountDownTimer(600000, 1000) {
-
-                public void onTick(long millisUntilFinished) {
-                    _tv.setText("Seconds remaining: " + millisUntilFinished / 1000);
-                    //here you can have your logic to set text to edittext
-                }
-
-                public void onFinish() {
-                    //  mTextField.setText("done!");
-                }
-
-            }.start();
-
-             /*timerTask = new TimerTask() {
+            
+             timerTask = new TimerTask() {
 
                 @Override
                 public void run() {
@@ -59,7 +47,6 @@ public class Timer extends AppCompatActivity {
 
                         public void onTick(long millisUntilFinished) {
                             _tv.setText("Seconds remaining: " + millisUntilFinished / 1000);
-                            //here you can have your logic to set text to edittext
                         }
 
                         public void onFinish() {
@@ -69,19 +56,19 @@ public class Timer extends AppCompatActivity {
                     }.start();
                 }
             };
-*/
+
 
 
     }
 
 
-    /*public void start() {
+    public void start() {
         if(timer != null) {
             return;
         }
         timer = new Timer();
-       // timer.scheduleAtFixedRate(timerTask, 0, 0);
-    }*/
+        timer.scheduleAtFixedRate(timerTask, 0, 0);
+    }
 
 
 
